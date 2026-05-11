@@ -1,0 +1,16 @@
+Modelo,MXZHR50,MXZHR42,MXZHR35,MXZHR25,
+Potencia calefaccion kW,5.4,4.7,3.6,3.15
+SCOP,6.5,6.5,6.2,6.2
+Potencia frigorifica kW,5.0,4.2,3.4,2.5,
+Potencia de compresor kW,2.05,1.34,1.21,0.8
+Prestacion energetica,A+++,A+++,A+++,A+++,
+SEER,6.5,6.5,6.2,6.2
+Potencia electrica nominal kW,2.05,1.34,1.21,0.8,
+Tipo de maquina,SPLIT,SPLIT,SPLIT,SPLIT
+Ficha tecnica,MTEL_1,MTEL1,MTEL_1,MTEL-1
+COP,3.48,3.62,3.69,3.71
+EER,2.44,3.13,2.81,3.13
+Declaracion conformidad,, 
+Tuberia gas,3/8,3/8,3/8,3/8
+Tuberia liquido,1/4,1/4,1/4,1/4,
+Carga de refrigerante Kg,0.8,0.7,0.45,0.4

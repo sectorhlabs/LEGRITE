@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 catastro_agent.py*)",
+      "Bash(python catastro_agent.py*)",
+      "Bash(node catastro_download.js*)",
+      "Bash(pdftotext*)",
+      "Bash(mudslide*)",
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  }
+}

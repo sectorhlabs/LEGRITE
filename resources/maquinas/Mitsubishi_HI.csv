@@ -1,0 +1,16 @@
+﻿Modelo,DXK09Z6W,DXK12Z6W,DXK15Z6W,DXK18Z6W,SRK63ZRW,SRK71ZRW,SRK80ZRW,SCM40ZS-W,SCM45ZS-W,SCM50ZS-W,SCM60ZS-W,FDUM71,FDUM90,FDUM100
+Potencia calefaccion kW,2.8,3.6,5.0,5.6,7.1,8.0,9.0,4.5,5.3,6.0,6.8,7.1,9.0,10.0
+SCOP,5.4,5.7,5.5,5.5,6,5.7,5.7,5,4.61,4.84,4.84,4.2,4.3,4.2
+Potencia frigorifica kW,2.5,3.2,4.5,5.00,6.3,7.1,8.0,4,4.5,5,6,7.1,9.0,10.0
+Potencia de compresor kW,0.62,0.82,1.26,1.65,1.54,1.84,2,1.4,1.4,1.4,1.4,2.51,2.53,2.99
+Prestacion energetica,A++,A++,A++,A++,A++,A++,A++,A+,A+,A+,A+,A+,A++,A++
+SEER,6.8,7.3,6.3,6.2,8.1,7.4,7,5.9,5.9,5.9,5.9,5.9,6.7,6.2
+Potencia electrica nominal kW,0.71,0.91,1.35,1.74,1.63,1.93,2.09,0.8,0.96,1.02,1.32,2.6,2.62,3.08
+Tipo de maquina,Split-pared,Split-pared,Split-pared,Split-pared,Split-pared,Split-pared,Split-pared,Multi_Split,Multi_Split,Multi_Split,Multi_Split,Conductos,Conductos,Conductos
+Ficha tecnica,MHI_1,MHI_1,MHI_1,MHI_1,MHI_1,MHI_1,MHI_1,MHI_2,MHI_2,MHI_2,MHI_2,MHI_3,MHI_3,MHI_3
+COP,4.05,3.87,3.68,3.37,4.33,4.1,3.96,5,4.61,4.84,,3.76,4.55,4.08
+EER,3.52,3.52,3.33,2.87,3.87,3.68,3.83,4.75,4.33,4.76,,2.73,3.44,3.25
+Declaracion conformidad,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3,DC_MHI_1_2_3
+Tuberia gas,3/8,3/8,1/2,1/2,1/2,5/8,5/8,3/8,3/8,3/8,3/8,1/2,5/8,5/8
+Tuberia liquido,1/4,1/4,1/4,1/4,1/4,1/4,1/4,1/4,1/4,1/4,1/4,1/4,1/4,1/4
+Carga de refrigerante Kg,0.55,0.68,1.1,1.1,1.25,1.5,1.6,1.4,1.4,1.8,1.8,1.3,1.7,1.7

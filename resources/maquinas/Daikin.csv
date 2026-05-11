@@ -1,0 +1,16 @@
+﻿Modelo,RXJ20,RXJ25,RXJ35,RXJ42,RXJ50,2MXM40M,2MXM50M,3MXM40N,3MXM52N,3MXM68N,4MXM68N,4MXM80N,5MXM90N,ADES35-ARXM35,ADES50-ARXM50,ADES60-ARXM60,ADES71-ARMX71R,ADES100-AZAS100,ADES125-AZAS125
+Potencia calefaccion kW,2.5,2.8,4,5.4,5.8,4.20,5.60,4.60,6.80,8.60,8.60,8.60,10.00,4.00,5.50,7.00,7.5,10.8,13.5
+SCOP,5.15,5.15,5.15,4.6,4.6,4.64,4.61,4.65,4.6,4.24,4.42,4.75,4.66,4,4,4,3.8,3.81,3.5
+Potencia frigorifica kW,2,2.5,3.4,4.2,5,4.00,5.00,4.00,5.20,6.80,6.80,8.00,8.00,3.40,5.00,5.70,6.8,9.5,12.1
+Potencia de compresor kW,,,,,,,,,,,,,,,,,,,
+Prestacion energetica,A+++,A+++,A+++,A++,A++,A+++,A+++,A+++,A+++,A++,A++,A++,A++,A+,A+,A+,A,A,
+SEER,8.75,8.74,8.73,7.5,7.33,8.53,8.67,8.55,8.5,7.57,7.93,7.8,7.77,5.75,5.65,5.74,5.35,5.13,4.73
+Potencia electrica nominal kW,0.43,0.56,0.789,1.05,1.36,0.97,1.18,0.77,1.21,1.68,1.54,2.19,1.99,0.91,1.53,1.66,2.31,,
+Tipo de maquina,Split-pared,Split-pared,Split-pared,Split-pared,Split-pared,Multi-split,Multi-split,Multi-split,Multi-split,Multi-split,Multi-split,Multi-split,Multi-split,Conductos,Conductos,Conductos,Conductos,Conductos,Conductos
+Ficha tecnica,DAK_3,DAK_3,DAK_3,DAK_3,DAK_3,DAK_1,DAK_1,DAK_1,DAK_1,DAK_1,DAK_1,DAK_1,DAK_1,DAK_2,DAK_2,DAK_2,DAK_2,DAK_2,DAK-2
+COP,5.00,5.00,4.04,4.12,4.00,4.3,4.1,5.18,4.81,4.44,74.8,4.08,5,3.97,3.74,3.63,3.49,,
+EER,4.65,4.46,4.31,4.00,3.68,4.13,4.21,5.18,4.27,4.05,4.41,3.65,4.9,3.76,3.27,3.43,2.95,,
+Declaracion conformidad,,,,,,,,,,,,,,,,,,,
+Tuberia gas,3/8,3/8,3/8,1/2,1/2,3/8-3/8,3/8-1/2,3/8-1/2-1/2,3/8-1/2-1/2,3/8-1/2-1/2,3/8-3/8-1/2-1/2,3/8-1/2-5/8-5/8,3/8-1/2-5/8-5/8,3/8,1/2,1/2,5/8,5/8,5/8
+Tuberia liquido,1/4,1/4,1/4,1/4,1/4,1/4-1/4,1/4-1/4,1/4-1/4-1/4,1/4-1/4-1/4,1/4-1/4-1/4,1/4-1/4-1/4-1/4,1/4-1/4-1/4-1/4,1/4-1/4-1/4-1/4-1/4,1/4,1/4,1/4,3/8,3/8,3/8
+Carga de refrigerante Kg,0.76,0.76,0.76,1.1,1.1,0.88,1.15,1.80,1.80,2,2,2.4,2.4,0.76,1.15,1.15,1.15,2.6,2.6

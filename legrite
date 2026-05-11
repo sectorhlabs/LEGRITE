@@ -1,0 +1,12 @@
+#!/bin/bash
+# LEGRITE CLI - wrapper script
+DIR="$(cd "$(dirname "$0")" && pwd)"
+JAR="$DIR/LEGRITE-src/target/LEGRITE-0.2.jar"
+
+if [ ! -f "$JAR" ]; then
+    echo "Error: no se encuentra $JAR"
+    echo "Ejecuta 'cd LEGRITE-src && mvn package' primero."
+    exit 1
+fi
+
+java -cp "$JAR" cli.LegriteCLI "$@"

@@ -1,0 +1,16 @@
+﻿Modelo,CSPO9MISTRAL,CSP12MISTRAL,CSP18MISTRAL,CSP24MISTRAL
+Potencia calefaccion kW,3,3.8,5.8,7.1
+SCOP,4.6,4.6,4.6,4.6
+Potencia frigorifica kW,2.6,3.5,5.1,6.9
+Potencia de compresor kW,,,,
+Prestacion energetica,A+++,A+++,A+++,A+++
+SEER,8.5,8.5,8.5,8.5
+Potencia electrica nominal kW,0.699,1,1.26,1.94
+Tipo de maquina,Split,Split,Split,Split
+Ficha tecnica,CB_1,CB_1,CB_1,CB_1
+COP,4.05,3.91,4.36,3.92
+EER,3.71,3.5,4.04,3.55
+Declaracion conformidad,,,,
+Tuberia gas,3/8,3/8,1/2,1/2
+Tuberia liquido,1/4,1/4,1/4,1/4
+Carga de refrigerante Kg,0.45,0.63,1.14,1.27

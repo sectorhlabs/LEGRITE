@@ -1,0 +1,16 @@
+Modelo,EQ3-9K,EQ3-12K,EQ3-18K,EQ3-24K,EQ3-9K+12K
+Potencia calefaccion kW,2.40,3.20,4.60,5.60,4.70
+SCOP,4.10,4.10,4.00,4.00,4.00
+Potencia frigorifica kW,2.60,3.60,5.00,7.00,5.00
+Potencia de compresor kW,1.31,1.41,2.41,2.81,
+Prestacion energetica,A++,A++,A++,A++,A++
+SEER,6.20,6.40,6.10,7.10,6.50
+Potencia electrica nominal kW,1.40,1.50,2.50,2.90,2.80
+Tipo de maquina,Split-pared,Split-pared,Split-pared,Split-pared,Multi_Split
+Ficha tecnica,EQT_1,EQT_1,EQT_1,EQT_1,EQT_1
+COP,1.85,2.40,2.00,2.41,1.78
+EER,1.85,2.40,2.00,2.41,1.78
+Declaracion conformidad,DC_EQT_1_SAC_7,DC_EQT_2_SAC_8,DC_EQT_3_SAC_9,DC_EQT_4_SAC_10,DC_EQT_5_SAC_11
+Tuberia gas,3/8,3/8,1/2,1/2,3/8
+Tuberia liquido,1/4,1/4,1/4,1/4,1/4
+Carga de refrigerante Kg,0.50,0.62,0.90,1.20,1.40

@@ -1,0 +1,16 @@
+Daitsu.csv
+Eluxe.csv
+Equation.csv
+Haier.csv
+Mitsubishi_HI.csv
+Daikin.csv
+_.csv
+Wind.csv
+Aire.csv
+Corbero.csv
+Bosch.csv
+Gree.csv
+Seico.csv
+HTW.csv
+OEM.csv
+Ferroli.csv

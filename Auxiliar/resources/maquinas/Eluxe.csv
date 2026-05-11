@@ -1,0 +1,16 @@
+Modelo,ELS026AMBR32,ELS035AMBR33,ELS052AMBR34,ELS071AMBR35
+Potencia calefaccion kW,2.91,3.80,5.57,7.31
+SCOP,4.00,4.00,4.00,4.00
+Potencia frigorifica kW,2.60,3.50,5.30,7.00
+Potencia de compresor kW,0.64,1.12,1.45,2.26
+Prestacion energetica,A++,A++,A++,A++
+SEER,6.30,6.10,7.10,6.10
+Potencia electrica nominal kW,0.73,1.21,1.54,2.35
+Tipo de maquina,Split-pared,Split-pared,Split-pared,Split-pared
+Ficha tecnica,ELX_1,ELX_1,ELX_1,ELX_1
+COP,3.96,3.46,3.76,3.59
+EER,3.55,2.89,3.44,2.99
+Declaracion conformidad,,,,
+Tuberia gas,3/8,3/8,1/2,5/8
+Tuberia liquido,1/4,1/4,1/4,3/8
+Carga de refrigerante Kg,0.55,0.55,1.00,1.60
