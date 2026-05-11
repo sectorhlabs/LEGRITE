@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LEGRITE — Automatización de memorias y certificados para instalaciones térmicas en edificios. Proyecto personal de Sector H Labs.">
+    <title>LEGRITE — Sector H Labs</title>
+    <link rel="icon" href="resources/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #08080c;
+            --bg2: #0e0e14;
+            --line: rgba(255,255,255,0.07);
+            --text: #e0e0e8;
+            --muted: #7a7a82;
+            --accent: #e67e22;
+            --accent2: #f39c12;
+            --accent-glow: rgba(230,126,34,0.2);
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            scrollbar-width: none;
+        }
+        html::-webkit-scrollbar { display: none; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--accent); color: #fff; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* Header */
+        .header {
+            padding: 48px 0 32px;
+            text-align: center;
+        }
+        .header-logo {
+            width: 56px;
+            height: auto;
+            margin: 0 auto 24px;
+            opacity: 0.7;
+        }
+        .header-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .header h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            color: #fff;
+        }
+        .header h1 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+        .header-sub {
+            margin-top: 16px;
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .header-links {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all .25s;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover { background: var(--accent2); }
+        .btn-ghost {
+            border: 1px solid var(--line);
+            color: var(--muted);
+        }
+        .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* Sections */
+        section {
+            padding: 64px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .sec-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: .26em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: clamp(24px, 3.5vw, 36px);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+        p strong { color: var(--text); font-weight: 500; }
+
+        /* Story */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 145px;
+            gap: 40px;
+            align-items: start;
+        }
+        .story-quote {
+            background: var(--bg2);
+            border: 1px solid var(--line);
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            line-height: 1.7;
+            color: var(--muted);
+            position: relative;
+        }
+        .story-quote::before {
+            content: "\201C";
+            position: absolute;
+            top: -8px;
+            left: 12px;
+            font-size: 48px;
+            color: var(--accent);
+            opacity: 0.3;
+            font-family: var(--font-sans);
+            line-height: 1;
+        }
+
+        /* Code block */
+        .code-block {
+            background: var(--bg2);
+            border: 1px solid var(--line);
+            padding: 24px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-top: 20px;
+        }
+        .code-block .k { color: var(--accent); }
+        .code-block .s { color: var(--accent2); }
+        .code-block .c { color: #555; }
+
+        /* Tech grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1px;
+            background: var(--line);
+            margin-top: 28px;
+        }
+        .tech-item {
+            background: var(--bg);
+            padding: 20px 18px;
+        }
+        .tech-item .name {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: .08em;
+        }
+        .tech-item .desc {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* Workflow */
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border: 1px solid var(--line);
+            margin-top: 28px;
+        }
+        .wf-step {
+            padding: 24px 18px;
+            border-right: 1px solid var(--line);
+            position: relative;
+        }
+        .wf-step:last-child { border-right: none; }
+        .wf-num {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.8;
+            line-height: 1;
+        }
+        .wf-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin: 12px 0 6px;
+        }
+        .wf-desc {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--line);
+        }
+        footer a {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color .2s;
+        }
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 700px) {
+            .story-grid { grid-template-columns: 1fr; }
+            .workflow { grid-template-columns: repeat(2, 1fr); }
+            .wf-step:nth-child(2) { border-right: none; }
+            .wf-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+        }
+        @media (max-width: 480px) {
+            .workflow { grid-template-columns: 1fr; }
+            .wf-step { border-right: none; border-bottom: 1px solid var(--line); }
+            .wf-step:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="resources/logo.png" alt="LEGRITE" class="header-logo">
+    <div class="header-tag">Proyecto personal · 2024</div>
+    <h1>LEG<em>RITE</em></h1>
+    <p class="header-sub">
+        Automatización de memorias y certificados para instalaciones térmicas en edificios.
+        De pasar horas rellenando PDFs a hacerlo en un click.
+    </p>
+    <div class="header-links">
+        <a href="https://github.com/sectorhlabs/LEGRITE" class="btn btn-primary" target="_blank">Ver en GitHub</a>
+        <a href="#tech" class="btn btn-ghost">cómo funciona</a>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="sec-label">La historia</div>
+        <h2>Mi primer proyecto con IA</h2>
+
+        <div class="story-grid">
+            <div>
+                <p>
+                    <strong>Mi padre trabaja en una empresa de instalaciones térmicas.</strong>
+                    Cada semana tiene que generar decenas de documentos oficiales —
+                    certificados, memorias técnicas, solicitudes — para legalizar las
+                    instalaciones de aire acondicionado, calefacción y ventilación que realizan.
+                </p>
+                <br>
+                <p>
+                    El proceso era <strong>manual y repetitivo:</strong> abrir un PDF, buscar los
+                    campos, copiar datos del instalador, del cliente, de la máquina instalada...
+                    Un trabajo que podía llevar <strong>horas cada semana.</strong>
+                </p>
+                <br>
+                <p>
+                    LEGRITE nació para cambiar eso. <strong>Una aplicación de escritorio hecha en Java</strong>
+                    que carga los datos una sola vez y genera <strong>todos los PDFs oficiales en un click.</strong>
+                    Fue el primer proyecto real que construí usando inteligencia artificial como
+                    asistente de desarrollo.
+                </p>
+            </div>
+            <div class="story-quote">
+                "Lo más valioso no fue el código, fue ver cómo una herramienta podía
+                ahorrarle a mi padre horas de trabajo repetitivo cada semana."
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="tech">
+    <div class="container">
+        <div class="sec-label">Tecnologías</div>
+        <h2>Stack técnico</h2>
+        <p>
+            Aplicación de escritorio con interfaz gráfica <strong>(Swing + FlatLaf)</strong>
+            y modo terminal <strong>(CLI con JSON)</strong> para automatización. El motor
+            principal usa <strong>Apache PDFBox</strong> para rellenar formularios AcroForm.
+        </p>
+
+        <div class="tech-grid">
+            <div class="tech-item">
+                <div class="name">Java 17</div>
+                <div class="desc">Lenguaje principal, compilado con Maven</div>
+            </div>
+            <div class="tech-item">
+                <div class="name">Apache PDFBox 3.0</div>
+                <div class="desc">Lectura/escritura de PDFs con AcroForm</div>
+            </div>
+            <div class="tech-item">
+                <div class="name">Swing + FlatLaf</div>
+                <div class="desc">Interfaz gráfica con tema moderno</div>
+            </div>
+            <div class="tech-item">
+                <div class="name">Maven Shade</div>
+                <div class="desc">Fat JAR autocontenido, sin dependencias externas</div>
+            </div>
+            <div class="tech-item">
+                <div class="name">CSV como base de datos</div>
+                <div class="desc">Instaladores, empresas y catálogos de máquinas</div>
+            </div>
+            <div class="tech-item">
+                <div class="name">Modo CLI + JSON</div>
+                <div class="desc">Automatización por terminal, compatible con agentes IA</div>
+            </div>
+            <div class="tech-item">
+                <div class="name">Playwright + Python</div>
+                <div class="desc">Subproyecto para descargar CDGs del Catastro</div>
+            </div>
+            <div class="tech-item">
+                <div class="name">45+ plantillas PDF</div>
+                <div class="desc">Cubre 10 tipos de instalación y múltiples CCAA</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="sec-label">Flujo de trabajo</div>
+        <h2>Cómo funciona</h2>
+
+        <div class="workflow">
+            <div class="wf-step">
+                <div class="wf-num">01</div>
+                <div class="wf-title">Cargar datos</div>
+                <div class="wf-desc">
+                    Selecciona instalador y empresa de la base de datos CSV.
+                    Elige la máquina del catálogo (250+ modelos, 22 marcas).
+                </div>
+            </div>
+            <div class="wf-step">
+                <div class="wf-num">02</div>
+                <div class="wf-title">Rellenar formulario</div>
+                <div class="wf-desc">
+                    Datos del titular, dirección de la instalación,
+                    características de hasta 4 máquinas en locales distintos.
+                </div>
+            </div>
+            <div class="wf-step">
+                <div class="wf-num">03</div>
+                <div class="wf-title">Generar PDFs</div>
+                <div class="wf-desc">
+                    El motor PDFBox rellena automáticamente los campos
+                    AcroForm de las plantillas oficiales con los datos introducidos.
+                </div>
+            </div>
+            <div class="wf-step">
+                <div class="wf-num">04</div>
+                <div class="wf-title">Entregar</div>
+                <div class="wf-desc">
+                    Todos los certificados y memorias listos para firma y
+                    presentación telemática en el organismo correspondiente.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="sec-label">Modo terminal</div>
+        <h2>CLI para automatización</h2>
+        <p>
+            Además de la interfaz gráfica, LEGRITE se puede usar desde terminal
+            pasando un JSON. Esto lo hace <strong>compatible con agentes de IA</strong> y
+            permite integrarlo en flujos automatizados.
+        </p>
+
+        <div class="code-block">
+            <span class="c"># Modo interactivo: lista todos los campos disponibles</span><br>
+            java -jar LEGRITE-cli.jar <span class="k">--campos</span><br><br>
+            <span class="c"># Modo batch: genera PDFs desde un JSON</span><br>
+            java -jar LEGRITE-cli.jar <span class="k">--json</span> <span class="s">datos.json</span> <span class="k">--plantillas</span> <span class="s">Modelos/</span> <span class="k">--salida</span> <span class="s">salida/</span><br><br>
+            <span class="c"># Desde stdin (compatible con pipes y agentes IA)</span><br>
+            <span class="k">echo</span> <span class="s">'{"TI1":"Juan","TI2":"Garcia"}'</span> | java -jar LEGRITE-cli.jar <span class="k">--json - --plantillas</span> <span class="s">Modelos/</span> <span class="k">--salida</span> <span class="s">salida/</span>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="sec-label">El dato curioso</div>
+        <h2>Decompilado y reconstruido</h2>
+        <p>
+            La versión original de LEGRITE se perdió al no estar versionada con Git.
+            El JAR compilado fue <strong>decompilado a código fuente con CFR 0.152</strong>
+            y reconstruido desde ahí, añadiendo nuevas funcionalidades como el motor
+            PDFBox real, el modo CLI, FlatLaf y el subproyecto del Catastro.
+        </p>
+        <br>
+        <p>
+            Es un ejemplo de cómo incluso cuando las cosas salen mal (perder el código fuente),
+            con las herramientas adecuadas se puede recuperar y mejorar el proyecto.
+        </p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <a href="https://github.com/sectorhlabs/LEGRITE">github.com/sectorhlabs/LEGRITE</a>
+        &nbsp;&nbsp;·&nbsp;&nbsp;
+        <a href="https://sectorhlabs.com">sectorhlabs.com</a>
+    </div>
+</footer>
+
+</body>
+</html>
