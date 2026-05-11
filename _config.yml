@@ -1,0 +1,8 @@
+exclude:
+  - LEGRITE-src/
+  - catastro-cli/
+  - LEGRITEOLD/
+  - resources/
+  - Modelos/
+  - .gitignore
+  - _config.yml
