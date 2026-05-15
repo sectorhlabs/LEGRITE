@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boletín Oficial de LEGRITE — Núm. I, Año MMXXIV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=DM+Serif+Display:ital@0;1&family=Caveat:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f1ead0;
+  --paper-deep:#e9e0c2;
+  --ink:#1a1612;
+  --ink-2:#3b342a;
+  --ink-faded:#6f6557;
+  --rule:rgba(26,22,18,.45);
+  --rule-soft:rgba(26,22,18,.18);
+  --red:#b8362e;
+  --red-hand:#a8392f;
+  --gold:#8a6f3a;
+  --f-serif:'Newsreader',Georgia,serif;
+  --f-display:'DM Serif Display',serif;
+  --f-hand:'Caveat',cursive;
+  --f-mono:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body{
+  background:#cfc6a8;
+  color:var(--ink);
+  font-family:var(--f-serif);
+  font-size:17px;
+  line-height:1.6;
+  hyphens:auto;
+  -webkit-hyphens:auto;
+}
+::selection{background:var(--ink);color:var(--paper);}
+
+/* the paper sheet */
+.sheet{
+  max-width:1180px;
+  margin:32px auto 80px;
+  background:var(--paper);
+  position:relative;
+  padding:0;
+  box-shadow:
+    0 1px 0 rgba(0,0,0,.05),
+    0 30px 60px -20px rgba(0,0,0,.4),
+    0 60px 120px -40px rgba(0,0,0,.3);
+  background-image:
+    /* faint horizontal "fibre" lines */
+    repeating-linear-gradient(0deg,rgba(26,22,18,.018) 0,rgba(26,22,18,.018) 1px,transparent 1px,transparent 4px),
+    /* paper grain */
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.sheet::before, .sheet::after{
+  /* paper edge shadow */
+  content:"";position:absolute;top:0;bottom:0;width:8px;
+  background:linear-gradient(90deg,rgba(0,0,0,.08),transparent);
+  pointer-events:none;
+}
+.sheet::before{left:0;}
+.sheet::after{right:0;background:linear-gradient(-90deg,rgba(0,0,0,.08),transparent);}
+
+/* page chrome */
+.page-frame{padding:54px 96px 96px;position:relative;}
+@media(max-width:760px){.page-frame{padding:32px 24px 64px;}.sheet{margin:8px auto 32px;}}
+
+/* MASTHEAD */
+.masthead-top{
+  border-top:6px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:8px 0 8px;
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--f-mono);
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);
+  position:relative;
+}
+.masthead-top::after{
+  content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:var(--ink);
+}
+.masthead-top span:nth-child(2){font-family:var(--f-serif);font-style:italic;letter-spacing:.06em;text-transform:none;}
+
+/* main title block */
+.titleblock{padding:70px 0 50px;text-align:center;border-bottom:1px solid var(--ink);position:relative;}
+.kicker{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--ink-faded);margin-bottom:30px;
+}
+.kicker::before, .kicker::after{content:" ✦ ";color:var(--gold);}
+.title{
+  font-family:var(--f-display);
+  font-size:clamp(96px,17vw,220px);
+  line-height:.85;letter-spacing:-.03em;font-weight:400;
+  color:var(--ink);
+}
+.title em{font-style:italic;color:var(--red);}
+.dek{
+  font-family:var(--f-serif);font-size:clamp(18px,1.6vw,22px);
+  font-style:italic;color:var(--ink-2);
+  max-width:640px;margin:32px auto 0;line-height:1.5;font-weight:400;
+}
+.title-rule{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:36px;color:var(--ink);font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;}
+.title-rule i{height:1px;background:var(--ink);flex:1;max-width:200px;display:block;}
+
+/* Stamp */
+.stamp{
+  position:absolute;top:50px;right:30px;width:170px;height:170px;
+  border:3px double var(--red);border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--f-display);color:var(--red);text-align:center;
+  transform:rotate(-12deg);
+  opacity:.78;
+  user-select:none;-webkit-user-select:none;
+  cursor:grab;
+  z-index:5;
+  touch-action:none;
+  -webkit-touch-callout:none;
+}
+.stamp:active{cursor:grabbing;}
+.stamp::before{
+  content:"";position:absolute;inset:8px;border:1px solid var(--red);border-radius:50%;
+}
+.stamp .s-top{font-family:var(--f-mono);font-size:9px;letter-spacing:.4em;position:absolute;top:18px;}
+.stamp .s-mid{font-size:22px;line-height:.9;font-weight:400;letter-spacing:.02em;}
+.stamp .s-mid em{display:block;font-style:italic;font-size:14px;margin-top:4px;}
+.stamp .s-yr{font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;position:absolute;bottom:18px;}
+.stamp-hint{position:absolute;top:225px;right:30px;width:170px;text-align:center;font-family:var(--f-hand);color:var(--red-hand);font-size:18px;transform:rotate(-3deg);}
+.stamp-hint::before{content:"↑ ";}
+
+@media(max-width:760px){
+  .stamp{position:relative;top:auto;right:auto;left:auto;margin:0 auto 18px;width:140px;height:140px;}
+  .stamp .s-mid{font-size:18px;}
+  .stamp .s-mid em{font-size:12px;}
+  .stamp-hint{position:static;width:auto;margin:0 auto 24px;text-align:center;}
+}
+
+/* SUMARIO */
+.sumario{padding:48px 0 40px;border-bottom:1px solid var(--ink);}
+.sumario-head{font-family:var(--f-mono);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--ink);text-align:center;margin-bottom:24px;}
+.sumario-head::before,.sumario-head::after{content:" — ";color:var(--ink-faded);}
+.sumario ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 60px;font-family:var(--f-serif);font-size:16px;}
+.sumario li{display:flex;align-items:baseline;gap:10px;padding:6px 0;position:relative;}
+.sumario li a{color:var(--ink);text-decoration:none;display:flex;align-items:baseline;gap:10px;width:100%;transition:color .2s;}
+.sumario li a:hover{color:var(--red);}
+.sumario .roman{font-family:var(--f-display);font-style:italic;color:var(--red);min-width:42px;font-size:18px;}
+.sumario .dots{flex:1;border-bottom:1.5px dotted var(--rule);align-self:flex-end;transform:translateY(-4px);margin:0 6px;}
+.sumario .pg{font-family:var(--f-mono);font-size:11px;color:var(--ink-faded);}
+@media(max-width:760px){.sumario ol{grid-template-columns:1fr;gap:4px;}}
+
+/* SECTION */
+section.disp{padding:80px 0 60px;border-bottom:1px solid var(--ink);position:relative;}
+section.disp:last-of-type{border-bottom:none;}
+.disp-header{display:grid;grid-template-columns:90px 1fr;gap:30px;margin-bottom:40px;align-items:start;}
+.disp-num{font-family:var(--f-display);font-style:italic;font-size:64px;line-height:1;color:var(--red);}
+.disp-meta{padding-top:14px;}
+.disp-kick{font-family:var(--f-mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-faded);margin-bottom:8px;}
+.disp-title{font-family:var(--f-display);font-size:clamp(36px,4.5vw,58px);font-weight:400;line-height:1.05;letter-spacing:-.015em;color:var(--ink);}
+.disp-title em{font-style:italic;color:var(--red);}
+
+/* article paragraphs (justified columns) */
+.cols-2{column-count:2;column-gap:48px;text-align:justify;}
+.cols-2 p{margin-bottom:14px;break-inside:avoid;}
+.body-prose p{font-family:var(--f-serif);font-size:17px;line-height:1.65;color:var(--ink);margin-bottom:18px;text-align:justify;}
+.body-prose strong{font-weight:600;color:var(--ink);}
+.body-prose .it{font-style:italic;}
+.body-prose .red{color:var(--red);font-weight:500;}
+@media(max-width:760px){.cols-2{column-count:1;}}
+
+/* DROP CAP */
+.dropcap::first-letter{
+  font-family:var(--f-display);
+  font-style:normal;
+  float:left;
+  font-size:88px;
+  line-height:.86;
+  padding:6px 12px 0 0;
+  color:var(--red);
+  font-weight:400;
+}
+
+/* MARGINALIA — red ink handwritten notes, inline aside */
+.margin-note{
+  display:block;
+  font-family:var(--f-hand);color:var(--red-hand);
+  font-size:26px;line-height:1.15;
+  max-width:300px;
+  margin:22px 0 22px auto;
+  text-align:right;
+  transform:rotate(-1.5deg);
+  pointer-events:none;
+  position:relative;
+  padding-right:10px;
+}
+.margin-note::before{
+  content:"";display:block;width:48px;height:1px;background:var(--red-hand);opacity:.55;margin:0 0 10px auto;
+}
+.margin-note.left{margin:22px auto 22px 0;text-align:left;transform:rotate(1.5deg);padding-left:10px;padding-right:0;}
+.margin-note.left::before{margin:0 auto 10px 0;}
+@media(max-width:760px){.margin-note{font-size:22px;max-width:none;text-align:left;margin:18px 0;padding:0;transform:rotate(-1deg);}.margin-note::before{margin:0 0 8px 0;}}
+
+/* ARTÍCULOS (for procedimiento) */
+.articulo{
+  display:grid;grid-template-columns:120px 1fr;gap:24px;
+  padding:22px 0;border-top:1px dashed var(--rule);
+}
+.articulo:last-child{border-bottom:1px dashed var(--rule);}
+.art-tag{font-family:var(--f-display);font-style:italic;color:var(--ink);font-size:22px;}
+.art-tag span{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faded);font-style:normal;margin-top:6px;}
+.art-body h4{font-family:var(--f-display);font-weight:400;font-size:24px;line-height:1.1;margin-bottom:8px;}
+.art-body h4 em{color:var(--red);font-style:italic;}
+.art-body p{font-size:15.5px;color:var(--ink-2);line-height:1.65;text-align:justify;}
+@media(max-width:760px){.articulo{grid-template-columns:1fr;gap:6px;}}
+
+/* FOLD divider */
+.fold{
+  height:32px;margin:0 -96px;
+  border-top:1px dashed var(--rule);
+  position:relative;text-align:center;
+}
+.fold::after{
+  content:"✂ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —";
+  font-family:var(--f-mono);font-size:11px;color:var(--rule);letter-spacing:.15em;
+  position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 14px;
+  white-space:nowrap;overflow:hidden;max-width:90%;
+}
+@media(max-width:760px){.fold{margin:0 -24px;}}
+
+/* FORMULARIO — interactive form */
+.formulario{
+  background:var(--paper-deep);
+  border:2px solid var(--ink);
+  padding:36px 40px;
+  position:relative;
+  margin-top:8px;
+}
+.formulario::before{
+  content:"MOD. PDF-3";position:absolute;top:-11px;left:24px;background:var(--paper);
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;padding:0 8px;color:var(--ink);
+}
+.formulario::after{
+  content:"v3.0";position:absolute;top:-11px;right:24px;background:var(--paper);
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;padding:0 8px;color:var(--ink-faded);
+}
+.form-title{
+  font-family:var(--f-display);font-size:22px;font-weight:400;
+  text-align:center;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;
+}
+.form-sub{
+  text-align:center;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.25em;color:var(--ink-faded);text-transform:uppercase;
+  margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--ink);
+}
+.form-row{margin-bottom:20px;font-family:var(--f-serif);font-size:17px;line-height:2.1;}
+.form-row label{font-weight:500;}
+.blank{
+  display:inline-block;
+  min-width:200px;
+  border-bottom:1.5px solid var(--ink);
+  padding:0 8px;
+  font-family:var(--f-hand);
+  font-size:23px;color:var(--red-hand);
+  line-height:1;
+  margin:0 4px;
+  vertical-align:baseline;
+  outline:none;
+}
+.blank:focus{background:rgba(184,54,46,.08);}
+.blank[contenteditable=true]:empty::before{content:attr(data-ph);color:var(--ink-faded);font-style:italic;opacity:.45;}
+.blank.short{min-width:130px;}
+.blank.long{min-width:300px;}
+.check-row{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.check{display:inline-flex;align-items:center;gap:8px;cursor:pointer;padding:6px 10px;border:1px solid var(--rule);transition:all .15s;}
+.check:hover{border-color:var(--ink);}
+.check.on{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.check .box{width:11px;height:11px;border:1.5px solid currentColor;display:inline-block;position:relative;}
+.check.on .box::after{content:"✓";position:absolute;top:-7px;left:0;font-size:14px;font-family:var(--f-serif);}
+
+/* the rendered "auto-prose" certificate output */
+.cert-output{
+  margin-top:36px;padding:32px 36px;
+  border:1px solid var(--ink);
+  background:rgba(255,255,255,.4);
+  position:relative;
+  font-family:var(--f-serif);
+  font-size:16.5px;line-height:1.8;
+  text-align:justify;
+}
+.cert-output::before{
+  content:"··· OUTPUT — VISTA OFICIAL ···";position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+  background:var(--paper);font-family:var(--f-mono);font-size:9px;letter-spacing:.3em;
+  padding:0 12px;color:var(--ink-faded);
+}
+.cert-output b{font-weight:600;border-bottom:1px dotted var(--red);padding:0 2px;}
+.cert-output .sig-line{margin-top:30px;display:flex;justify-content:space-between;align-items:flex-end;padding-top:16px;border-top:1px dashed var(--rule);font-family:var(--f-mono);font-size:11px;color:var(--ink-faded);letter-spacing:.15em;text-transform:uppercase;}
+.cert-output .gen-tag{color:var(--red);font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;}
+
+.form-actions{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 18px;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);
+  border:none;cursor:pointer;transition:all .2s;
+}
+.btn:hover{background:var(--red);}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);}
+
+/* TECH STACK — referencias normativas */
+.refs{font-family:var(--f-serif);font-size:15.5px;line-height:1.7;}
+.refs .ref{
+  display:grid;grid-template-columns:60px 200px 1fr;
+  gap:24px;padding:14px 0;border-bottom:1px dotted var(--rule);align-items:baseline;
+}
+.refs .ref:last-child{border-bottom:none;}
+.refs .ref-no{font-family:var(--f-display);font-style:italic;color:var(--red);font-size:18px;}
+.refs .ref-name{font-weight:600;color:var(--ink);}
+.refs .ref-name span{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--ink-faded);margin-top:2px;}
+.refs .ref-desc{color:var(--ink-2);font-style:italic;}
+@media(max-width:760px){.refs .ref{grid-template-columns:50px 1fr;gap:14px;}.refs .ref-desc{grid-column:1/-1;padding-top:6px;}}
+
+/* CLI / ANEXO */
+.anexo-box{
+  background:#0e0c08;
+  color:#d6c9a5;
+  padding:0;
+  margin-top:18px;
+  font-family:var(--f-mono);
+  border:1px solid var(--ink);
+  position:relative;
+}
+.anexo-head{padding:10px 18px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9c8e6a;}
+.anexo-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.08);}
+.anexo-tab{flex:1;padding:11px 14px;background:transparent;border:none;color:#7a6d4f;font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border-right:1px solid rgba(255,255,255,.06);transition:color .2s;}
+.anexo-tab:last-child{border-right:none;}
+.anexo-tab.active{color:#ffb86b;background:rgba(255,184,107,.05);}
+.anexo-body{padding:24px 22px;font-size:13px;line-height:1.85;min-height:280px;}
+.anexo-body .ln{display:block;}
+.anexo-body .pr{color:#ffb86b;}
+.anexo-body .cmd{color:#f1ead0;}
+.anexo-body .flag{color:#ff9d62;}
+.anexo-body .str{color:#9ad590;}
+.anexo-body .com{color:#5a5340;font-style:italic;}
+.anexo-body .out{color:#a89970;}
+.anexo-body .ok{color:#9ad590;}
+.cli-cursor{display:inline-block;width:7px;height:13px;background:#ffb86b;margin-left:1px;vertical-align:text-bottom;animation:blink 1s infinite;}
+@keyframes blink{50%{opacity:0;}}
+
+/* fe de erratas */
+.erratas{
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:24px 28px;
+  background:repeating-linear-gradient(135deg,transparent 0 24px,rgba(184,54,46,.04) 24px 25px);
+  position:relative;
+}
+.erratas::before{
+  content:"FE DE ERRATAS";position:absolute;top:-11px;left:24px;background:var(--paper);
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;padding:0 10px;color:var(--red);
+}
+.errata{display:grid;grid-template-columns:90px 1fr 1fr;gap:24px;align-items:start;padding:12px 0;font-family:var(--f-mono);font-size:13px;}
+.errata + .errata{border-top:1px dotted var(--rule);}
+.errata .lbl{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faded);padding-top:2px;}
+.errata .where-it-says{color:var(--ink-faded);text-decoration:line-through;}
+.errata .it-should-say{color:var(--ink);font-weight:500;}
+@media(max-width:760px){.errata{grid-template-columns:1fr;gap:4px;}}
+
+/* SIGNATURE block */
+.signature-block{padding:80px 0 30px;text-align:center;border-top:6px double var(--ink);}
+.sig-place{font-family:var(--f-serif);font-style:italic;font-size:18px;color:var(--ink-2);margin-bottom:14px;}
+.sig-canvas-wrap{display:inline-block;position:relative;}
+.sig-canvas{
+  display:block;
+  width:380px;height:120px;
+  border-bottom:1.5px solid var(--ink);
+  background:transparent;
+  cursor:crosshair;
+  touch-action:none;
+}
+@media(max-width:480px){.sig-canvas{width:300px;}}
+.sig-prompt{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-family:var(--f-hand);font-size:22px;color:var(--ink-faded);opacity:.5;
+  pointer-events:none;
+  white-space:nowrap;
+}
+.sig-prompt.gone{display:none;}
+.sig-label{font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faded);margin-top:8px;}
+.sig-clear{
+  margin-left:14px;font-family:var(--f-mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--red);background:none;border:none;cursor:pointer;text-decoration:underline;
+}
+
+/* DISPOSICIÓN FINAL */
+.final{padding:60px 0 0;text-align:center;}
+.final h3{
+  font-family:var(--f-display);font-size:clamp(36px,5.5vw,72px);font-weight:400;
+  line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin-bottom:24px;
+}
+.final h3 em{font-style:italic;color:var(--red);}
+.final p{font-family:var(--f-serif);font-style:italic;font-size:19px;color:var(--ink-2);max-width:580px;margin:0 auto;line-height:1.55;}
+
+/* COLOFÓN */
+.colofon{
+  margin-top:50px;text-align:center;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-faded);
+  border-top:1px solid var(--rule);padding-top:30px;
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 22px;
+}
+.colofon > span{display:inline-block;}
+.colofon .ornament{color:var(--gold);font-size:14px;}
+
+/* page numbers */
+.pageno{
+  position:absolute;bottom:30px;left:0;right:0;text-align:center;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;color:var(--ink-faded);
+}
+.pageno::before,.pageno::after{content:" — ";}
+
+/* paperclip / staple */
+.staple{
+  position:absolute;top:-6px;left:120px;width:34px;height:14px;
+  background:linear-gradient(180deg,#b0a48a 0%,#8a7f66 50%,#b0a48a 100%);
+  border:1px solid #5d543e;border-radius:2px;
+  transform:rotate(-12deg);
+  box-shadow:0 4px 6px rgba(0,0,0,.2);
+}
+.staple::after{content:"";position:absolute;left:50%;top:50%;width:2px;height:8px;background:#5d543e;transform:translate(-50%,-50%);}
+
+/* draggable stamp ghost */
+.stamp.dragging{opacity:1;z-index:100;}
+
+/* utility — print */
+@media print{
+  body{background:var(--paper);}
+  .sheet{box-shadow:none;margin:0;max-width:none;}
+  .page-frame{padding:24mm;}
+  .stamp-hint,.form-actions,.sig-clear{display:none;}
+}
+
+/* tiny inline icons / glyphs */
+.glyph{font-family:var(--f-display);color:var(--red);}
+
+/* footnote refs */
+sup{font-family:var(--f-display);font-style:italic;color:var(--red);font-size:.7em;cursor:help;}
+
+/* tooltip for footnotes (uses CSS only) */
+sup[data-fn]{position:relative;}
+sup[data-fn]:hover::after{
+  content:attr(data-fn);
+  position:absolute;left:50%;bottom:130%;transform:translateX(-50%);
+  background:var(--ink);color:var(--paper);padding:8px 12px;border-radius:2px;
+  font-family:var(--f-serif);font-style:italic;font-size:13px;letter-spacing:0;
+  width:230px;line-height:1.45;
+  text-align:left;
+  z-index:50;
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+sup[data-fn]:hover::before{
+  content:"";position:absolute;left:50%;bottom:118%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:var(--ink);z-index:50;
+}
+</style>
+</head>
+<body>
+
+<article class="sheet">
+  <div class="staple"></div>
+  <div class="page-frame">
+
+    <!-- MASTHEAD top bar -->
+    <div class="masthead-top">
+      <span>Núm. I · Sevilla · Mayo MMXXIV</span>
+      <span>Boletín Oficial de <strong>Legrite</strong></span>
+      <span>Edición única · 5 pliegos</span>
+    </div>
+
+    <!-- TITLE / first page -->
+    <div class="titleblock">
+      <div class="stamp" id="stampMaster" title="Arrástrame y séllame donde quieras">
+        <span class="s-top">REGISTRADO</span>
+        <span class="s-mid">LEGRITE<em>Mayo 2024</em></span>
+        <span class="s-yr">SEVILLA · ES</span>
+      </div>
+      <div class="stamp-hint">arrástrame y séllame donde quieras</div>
+
+      <div class="kicker">Disposición General · Pliego primero</div>
+      <h1 class="title">Leg<em>rite</em></h1>
+      <p class="dek">Por la que se establece la automatización de memorias, certificados y solicitudes para instalaciones térmicas en edificios, con efectos desde el ejercicio MMXXIV.</p>
+      <div class="title-rule"><i></i><span>Aprobada por una familia</span><i></i></div>
+    </div>
+
+    <!-- SUMARIO -->
+    <nav class="sumario">
+      <div class="sumario-head">Sumario</div>
+      <ol>
+        <li><a href="#i"><span class="roman">I.</span><span>De los antecedentes</span><span class="dots"></span><span class="pg">02</span></a></li>
+        <li><a href="#ii"><span class="roman">II.</span><span>Del procedimiento, en cuatro artículos</span><span class="dots"></span><span class="pg">03</span></a></li>
+        <li><a href="#iii"><span class="roman">III.</span><span>Referencias normativas</span><span class="dots"></span><span class="pg">04</span></a></li>
+        <li><a href="#iv"><span class="roman">IV.</span><span>Anexo I — Del modo terminal</span><span class="dots"></span><span class="pg">05</span></a></li>
+        <li><a href="#v"><span class="roman">V.</span><span>Fe de erratas y disposición final</span><span class="dots"></span><span class="pg">06</span></a></li>
+      </ol>
+    </nav>
+
+    <div class="fold"></div>
+
+    <!-- I. ANTECEDENTES -->
+    <section class="disp" id="i">
+      <div class="disp-header">
+        <div class="disp-num">I.</div>
+        <div class="disp-meta">
+          <div class="disp-kick">De los antecedentes — anno MMXXIV</div>
+          <h2 class="disp-title">Sobre los <em>papeles</em> que llenaban la mesa<br>de mis padres.</h2>
+        </div>
+      </div>
+
+      <div class="body-prose cols-2 dropcap">
+        <p>Mis padres trabajan en una empresa de instalaciones térmicas. Cada semana, decenas de documentos oficiales — certificados, memorias técnicas, solicitudes<sup data-fn="Documentos exigidos por el RITE (Real Decreto 1027/2007) y reglamentación autonómica.">¹</sup> — se acumulaban sobre la mesa esperando ser cumplimentados a mano, casilla por casilla, durante horas.</p>
+
+        <p>El procedimiento, <span class="it">manual y repetitivo:</span> abrir el PDF, localizar el campo, copiar los datos del instalador, del cliente, del fabricante de la máquina; volver a empezar para el siguiente trámite, y para el siguiente.</p>
+
+        <p><span class="red">LEGRITE</span> nació para terminar con eso. Una aplicación de escritorio escrita en Java que carga los datos una sola vez y emite <strong>todos los documentos en un único acto</strong>. Fue, además, el primer proyecto real que construí utilizando inteligencia artificial<sup data-fn="Modelos de lenguaje empleados como pair-programmer. La empresa, sigue siendo humana.">²</sup> como pair-programmer.</p>
+
+        <p>Lo más valioso del proyecto no fue el código ni el algoritmo: fue ver cómo una herramienta hecha en casa podía devolverle <strong>horas de la semana</strong> a las dos personas que más me importan.</p>
+      </div>
+
+      <div class="margin-note">
+        <em>vi a mi madre llenar el mismo PDF 14 veces. catorce.</em>
+      </div>
+
+    </section>
+
+    <div class="fold"></div>
+
+    <!-- II. PROCEDIMIENTO -->
+    <section class="disp" id="ii">
+      <div class="disp-header">
+        <div class="disp-num">II.</div>
+        <div class="disp-meta">
+          <div class="disp-kick">Del procedimiento</div>
+          <h2 class="disp-title">Cuatro artículos.<br><em>Cero papeles a mano.</em></h2>
+        </div>
+      </div>
+
+      <div class="articulo">
+        <div class="art-tag">Artículo 1.º <span>Carga</span></div>
+        <div class="art-body">
+          <h4>De los <em>datos</em>.</h4>
+          <p>Se cargarán los registros del instalador y de la empresa desde la base de datos en formato <span class="it">comma-separated values</span>. La máquina objeto del trámite se seleccionará del catálogo, con un total de doscientos cincuenta modelos catalogados, distribuidos en veintidós marcas reconocidas.</p>
+        </div>
+      </div>
+
+      <div class="articulo">
+        <div class="art-tag">Artículo 2.º <span>Forma</span></div>
+        <div class="art-body">
+          <h4>Del <em>formulario</em>.</h4>
+          <p>Se consignarán: datos del titular, dirección exacta de la instalación, características técnicas y datos del aparato — pudiendo concurrir hasta cuatro máquinas en locales diferenciados del mismo expediente. Toda casilla obligatoria será validada antes del paso siguiente.</p>
+        </div>
+      </div>
+
+      <div class="articulo">
+        <div class="art-tag">Artículo 3.º <span>Motor</span></div>
+        <div class="art-body">
+          <h4>De la <em>emisión</em>.</h4>
+          <p>El motor PDFBox cumplimentará automáticamente los campos AcroForm<sup data-fn="AcroForm: estándar PDF de formularios rellenables. La administración pública española lo usa profusamente.">³</sup> de las plantillas oficiales correspondientes a la comunidad autónoma de tramitación. No se requerirá intervención manual del operador.</p>
+        </div>
+      </div>
+
+      <div class="articulo">
+        <div class="art-tag">Artículo 4.º <span>Entrega</span></div>
+        <div class="art-body">
+          <h4>De la <em>firma</em> y presentación.</h4>
+          <p>Los documentos emitidos quedarán dispuestos para firma digital y presentación telemática ante el organismo competente. Se entregarán nombrados, numerados y archivados en carpeta única, lista para su remisión.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="fold"></div>
+
+    <!-- III. REFERENCIAS -->
+    <section class="disp" id="iii">
+      <div class="disp-header">
+        <div class="disp-num">III.</div>
+        <div class="disp-meta">
+          <div class="disp-kick">Referencias normativas</div>
+          <h2 class="disp-title">Lo que sostiene <em>este expediente</em>.</h2>
+        </div>
+      </div>
+
+      <div class="refs">
+        <div class="ref"><span class="ref-no">01</span><span class="ref-name">Java 17<span>Lenguaje de cabecera</span></span><span class="ref-desc">"Lenguaje principal del expediente, compilado mediante Apache Maven con soporte de fat JAR."</span></div>
+        <div class="ref"><span class="ref-no">02</span><span class="ref-name">Apache PDFBox 3.0<span>Motor de emisión</span></span><span class="ref-desc">"Lectura y escritura de documentos PDF con relleno automático de campos AcroForm oficiales."</span></div>
+        <div class="ref"><span class="ref-no">03</span><span class="ref-name">Swing + FlatLaf<span>Interfaz visual</span></span><span class="ref-desc">"Interfaz gráfica de escritorio con tema moderno, oscuro o claro a discreción del operador."</span></div>
+        <div class="ref"><span class="ref-no">04</span><span class="ref-name">Maven Shade<span>Empaquetado</span></span><span class="ref-desc">"Distribución en archivo autocontenido, sin dependencias externas en máquina del usuario."</span></div>
+        <div class="ref"><span class="ref-no">05</span><span class="ref-name">CSV<span>Base documental</span></span><span class="ref-desc">"Catálogos en texto plano: instaladores, empresas asociadas y modelos de máquinas reconocidos."</span></div>
+        <div class="ref"><span class="ref-no">06</span><span class="ref-name">CLI + JSON<span>Interoperabilidad</span></span><span class="ref-desc">"Modo terminal para automatización y compatibilidad con agentes de IA, pipes, scripts."</span></div>
+        <div class="ref"><span class="ref-no">07</span><span class="ref-name">Playwright + Python<span>Subexpediente</span></span><span class="ref-desc">"Descarga programática de CDGs del Catastro a través de navegación automatizada."</span></div>
+        <div class="ref"><span class="ref-no">08</span><span class="ref-name">45+ plantillas PDF<span>Corpus</span></span><span class="ref-desc">"Plantillas oficiales para diez tipos de instalación y múltiples comunidades autónomas."</span></div>
+      </div>
+    </section>
+
+    <div class="fold"></div>
+
+    <!-- IV. ANEXO CLI -->
+    <section class="disp" id="iv">
+      <div class="disp-header">
+        <div class="disp-num">IV.</div>
+        <div class="disp-meta">
+          <div class="disp-kick">Anexo I al Pliego primero</div>
+          <h2 class="disp-title">Del <em>modo terminal</em>.<br>Para agentes y demás máquinas.</h2>
+        </div>
+      </div>
+
+      <div class="body-prose" style="max-width:680px;">
+        <p>Además de la interfaz gráfica, el sistema admite invocación desde terminal pasando un objeto JSON, lo que lo hace compatible con <span class="red">agentes de inteligencia artificial</span> y permite su integración en flujos automatizados de cualquier naturaleza.</p>
+      </div>
+
+      <div class="anexo-box">
+        <div class="anexo-head"><span>~ / legrite-cli ▸ zsh</span><span>tty 80×24</span></div>
+        <div class="anexo-tabs">
+          <button class="anexo-tab active" data-cli="0">--campos</button>
+          <button class="anexo-tab" data-cli="1">--json batch</button>
+          <button class="anexo-tab" data-cli="2">stdin · pipe</button>
+        </div>
+        <div class="anexo-body" id="anexoBody"></div>
+      </div>
+    </section>
+
+    <div class="fold"></div>
+
+    <!-- V. ERRATAS + DISPOSICIÓN FINAL -->
+    <section class="disp" id="v">
+      <div class="disp-header">
+        <div class="disp-num">V.</div>
+        <div class="disp-meta">
+          <div class="disp-kick">Anotaciones finales</div>
+          <h2 class="disp-title">El proyecto, otra vez.<br>Esta vez, <em>con git</em>.</h2>
+        </div>
+      </div>
+
+      <div class="body-prose">
+        <p>La versión primera del expediente <strong>se perdió</strong> al no haberse versionado adecuadamente. Del archivo <span class="it">.jar</span> compilado fue posible decompilar el código fuente mediante la herramienta <span class="red">CFR 0.152</span>, y reconstruirlo añadiendo cuanto sigue:</p>
+      </div>
+
+      <div class="erratas" style="margin-top:30px;">
+        <div class="errata"><div class="lbl">Errata 01</div><div class="where-it-says">Sin motor real, sólo escritura plana de texto.</div><div class="it-should-say">→ Motor Apache PDFBox con relleno AcroForm.</div></div>
+        <div class="errata"><div class="lbl">Errata 02</div><div class="where-it-says">Sin modo terminal ni interoperabilidad.</div><div class="it-should-say">→ CLI con entrada JSON y stdin.</div></div>
+        <div class="errata"><div class="lbl">Errata 03</div><div class="where-it-says">Interfaz Swing de aspecto noventero.</div><div class="it-should-say">→ Swing + FlatLaf, tema moderno.</div></div>
+        <div class="errata"><div class="lbl">Errata 04</div><div class="where-it-says">Sin descarga automática del Catastro.</div><div class="it-should-say">→ Subproyecto Playwright + Python.</div></div>
+        <div class="errata"><div class="lbl">Errata 05</div><div class="where-it-says">Sin versionado.</div><div class="it-should-say">→ Git, esta vez sí.</div></div>
+      </div>
+
+      <div class="body-prose" style="margin-top:30px;">
+        <p>Sirva como recordatorio: incluso cuando las cosas salen mal — perder el código fuente entre tantos archivos — con las herramientas adecuadas el proyecto se recupera, y vuelve mejorado.</p>
+      </div>
+    </section>
+
+    <!-- DISPOSICIÓN FINAL — agradecimientos -->
+    <div class="final">
+      <h3>A las <em>herramientas</em>.<br>El <em>tiempo</em>, lo puse yo.</h3>
+      <p>Mi gratitud a las librerías de código abierto que sostienen este expediente — PDFBox, FlatLaf, CFR, Maven, Playwright — y a los modelos de inteligencia artificial que asistieron en su composición. El resto fue, sencillamente, una tarde cualquiera en Sevilla.</p>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+      <div class="sig-place">En Sevilla, a <span id="todayWords">quince de mayo del año dos mil veinticuatro</span>.</div>
+      <div class="sig-canvas-wrap">
+        <canvas class="sig-canvas" id="sigCanvas" width="760" height="240"></canvas>
+        <div class="sig-prompt" id="sigPrompt">— firme aquí su conformidad —</div>
+      </div>
+      <div class="sig-label">El que suscribe · firmante <button class="sig-clear" onclick="clearSig()">borrar</button></div>
+    </div>
+
+    <!-- COLOFÓN -->
+    <div class="colofon">
+      <span>Boletín Oficial de Legrite</span>
+      <span class="ornament">✦</span>
+      <span>Edición y composición — Sector H Labs <span style="color:var(--red);">×</span> Claude Design</span>
+      <span class="ornament">✦</span>
+      <span>Sevilla · edición digital</span>
+    </div>
+
+  </div>
+</article>
+
+<script>
+/* ============= STAMP — draggable ============= */
+const stampMaster=document.getElementById('stampMaster');
+let stampDrag=false,offX=0,offY=0,placed=false;
+let initX=stampMaster.offsetLeft, initY=stampMaster.offsetTop;
+const stampHint=document.querySelector('.stamp-hint');
+
+stampMaster.addEventListener('pointerdown',e=>{
+  e.preventDefault();
+  const r=stampMaster.getBoundingClientRect();
+  offX=e.clientX-r.left;
+  offY=e.clientY-r.top;
+  if(!placed){
+    /* reparent to body and switch to fixed position */
+    document.body.appendChild(stampMaster);
+    stampMaster.style.position='fixed';
+    stampMaster.style.left=r.left+'px';
+    stampMaster.style.top=r.top+'px';
+    stampMaster.style.right='auto';
+    stampMaster.style.zIndex=200;
+  }
+  stampMaster.classList.add('dragging');
+  stampDrag=true;
+  stampHint && (stampHint.style.opacity='0');
+  stampMaster.setPointerCapture(e.pointerId);
+});
+window.addEventListener('pointermove',e=>{
+  if(!stampDrag)return;
+  stampMaster.style.left=(e.clientX-offX)+'px';
+  stampMaster.style.top=(e.clientY-offY)+'px';
+});
+window.addEventListener('pointerup',e=>{
+  if(!stampDrag)return;
+  stampDrag=false;
+  /* convert position to absolute over the sheet so it stays with the document */
+  const sheet=document.querySelector('.sheet');
+  const sr=sheet.getBoundingClientRect();
+  const sm=stampMaster.getBoundingClientRect();
+  stampMaster.style.position='absolute';
+  stampMaster.style.left=(sm.left-sr.left)+'px';
+  stampMaster.style.top=(sm.top-sr.top)+'px';
+  sheet.appendChild(stampMaster);
+  stampMaster.style.transform='rotate('+((Math.random()*30-15)|0)+'deg)';
+  stampMaster.style.opacity='0.85';
+  placed=true;
+  stampMaster.classList.remove('dragging');
+  if(stampHint){stampHint.style.opacity='0';stampHint.style.transition='opacity .5s';setTimeout(()=>stampHint.remove(),500);}
+});
+
+/* ============= CLI typed ============= */
+const CLI=[
+  [
+    {p:'$ ',c:'java -jar LEGRITE-cli.jar ',f:'--campos'},
+    {com:'# Lista todos los campos disponibles'},
+    {o:'CAMPO              DESCRIPCIÓN'},
+    {o:'─────              ───────────'},
+    {o:'TI1                Titular: nombre'},
+    {o:'TI2                Titular: apellidos'},
+    {o:'TI3                Titular: NIF'},
+    {o:'DIR1               Dirección instalación'},
+    {o:'MAQ1               Marca máquina principal'},
+    {o:'POT1               Potencia nominal (kW)'},
+    {o:'CCAA               Comunidad Autónoma'},
+    {o:'... 87 campos más'}
+  ],
+  [
+    {com:'# Modo batch: genera PDFs desde un JSON'},
+    {p:'$ ',c:'java -jar LEGRITE-cli.jar \\'},
+    {p:'  ',f:'--json ',s:'datos.json '},
+    {p:'  ',f:'--plantillas ',s:'Modelos/ '},
+    {p:'  ',f:'--salida ',s:'out/'},
+    {o:''},
+    {o:'▸ Cargando datos.json ........ OK'},
+    {o:'▸ 14 plantillas detectadas ... OK'},
+    {o:'▸ Generando AcroForm ......... OK'},
+    {ok:'✓ 14 PDFs emitidos en 1.8s → out/'}
+  ],
+  [
+    {com:'# Desde stdin — compatible con pipes y agentes IA'},
+    {p:'$ ',c:'echo ',s:'\'{"TI1":"Juan","TI2":"Garcia","TI3":"12345678X"}\''},
+    {p:'  ',c:'  | java -jar LEGRITE-cli.jar --json - \\'},
+    {p:'    ',f:'--plantillas ',s:'Modelos/ ',f2:'--salida ',s2:'out/'},
+    {o:''},
+    {o:'▸ stdin recibido ............. OK'},
+    {o:'▸ Parseando JSON ............. OK'},
+    {o:'▸ Rellenando AcroForm ........ OK'},
+    {ok:'✓ certificado.pdf → out/'},
+    {o:''},
+    {com:'# Perfecto para pipelines de agentes Claude / GPT'}
+  ]
+];
+const anexoBody=document.getElementById('anexoBody');
+let cliBusy=false;
+function esc(s){return s.replace(/</g,'&lt;');}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+async function typeCLI(idx){
+  if(cliBusy)return;cliBusy=true;
+  anexoBody.innerHTML='';
+  for(const line of CLI[idx]){
+    const d=document.createElement('span');d.className='ln';anexoBody.appendChild(d);
+    if(line.com){d.innerHTML='<span class="com">'+line.com+'</span>';await sleep(110);continue;}
+    if(line.ok){d.innerHTML='<span class="ok">'+line.ok+'</span>';await sleep(110);continue;}
+    if(line.o!==undefined){d.innerHTML='<span class="out">'+line.o+'</span>';await sleep(55);continue;}
+    let html='';
+    if(line.p)html+='<span class="pr">'+line.p+'</span>';
+    if(line.c)html+='<span class="cmd">'+esc(line.c)+'</span>';
+    if(line.f)html+='<span class="flag">'+line.f+'</span>';
+    if(line.s)html+='<span class="str">'+esc(line.s)+'</span>';
+    if(line.f2)html+='<span class="flag">'+line.f2+'</span>';
+    if(line.s2)html+='<span class="str">'+esc(line.s2)+'</span>';
+    d.innerHTML=html;
+    await sleep(80);
+  }
+  const c=document.createElement('span');c.className='cli-cursor';anexoBody.appendChild(c);
+  cliBusy=false;
+}
+document.querySelectorAll('.anexo-tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.anexo-tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    typeCLI(+t.dataset.cli);
+  });
+});
+const cliObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){typeCLI(0);cliObs.disconnect();}}),{threshold:.25});
+cliObs.observe(document.getElementById('iv'));
+
+/* ============= SIGNATURE pad ============= */
+const sigC=document.getElementById('sigCanvas');
+const sigP=document.getElementById('sigPrompt');
+const ctx=sigC.getContext('2d');
+function fitSig(){
+  const r=sigC.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  sigC.width=r.width*dpr;sigC.height=r.height*dpr;
+  ctx.scale(dpr,dpr);
+  ctx.strokeStyle='#1a1612';
+  ctx.lineWidth=2.2;
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+}
+fitSig();window.addEventListener('resize',()=>{const dataURL=sigC.toDataURL();fitSig();const i=new Image();i.onload=()=>ctx.drawImage(i,0,0,sigC.getBoundingClientRect().width,sigC.getBoundingClientRect().height);i.src=dataURL;});
+
+let drawing=false;
+function pos(e){const r=sigC.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
+sigC.addEventListener('pointerdown',e=>{e.preventDefault();drawing=true;sigP.classList.add('gone');const p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);sigC.setPointerCapture(e.pointerId);});
+sigC.addEventListener('pointermove',e=>{if(!drawing)return;const p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();});
+sigC.addEventListener('pointerup',()=>{drawing=false;});
+sigC.addEventListener('pointerleave',()=>{drawing=false;});
+function clearSig(){const r=sigC.getBoundingClientRect();ctx.clearRect(0,0,sigC.width,sigC.height);sigP.classList.remove('gone');}
+window.clearSig=clearSig;
+
+/* ============= Dynamic date — formal Spanish ============= */
+(function(){
+  const DAYS={1:'uno',2:'dos',3:'tres',4:'cuatro',5:'cinco',6:'seis',7:'siete',8:'ocho',9:'nueve',10:'diez',11:'once',12:'doce',13:'trece',14:'catorce',15:'quince',16:'dieciséis',17:'diecisiete',18:'dieciocho',19:'diecinueve',20:'veinte',21:'veintiuno',22:'veintidós',23:'veintitrés',24:'veinticuatro',25:'veinticinco',26:'veintiséis',27:'veintisiete',28:'veintiocho',29:'veintinueve',30:'treinta',31:'treinta y uno'};
+  const MONTHS=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const TENS={2:'veinte',3:'treinta',4:'cuarenta',5:'cincuenta',6:'sesenta',7:'setenta',8:'ochenta',9:'noventa'};
+  const UNITS=['','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve'];
+  const TEENS_20={0:'veinte',1:'veintiuno',2:'veintidós',3:'veintitrés',4:'veinticuatro',5:'veinticinco',6:'veintiséis',7:'veintisiete',8:'veintiocho',9:'veintinueve'};
+  function yearWords(y){
+    const rest=y-2000;
+    if(rest===0)return 'dos mil';
+    if(rest<10)return 'dos mil '+UNITS[rest];
+    if(rest<20)return 'dos mil '+({10:'diez',11:'once',12:'doce',13:'trece',14:'catorce',15:'quince',16:'dieciséis',17:'diecisiete',18:'dieciocho',19:'diecinueve'}[rest]);
+    const t=Math.floor(rest/10),u=rest%10;
+    if(t===2)return 'dos mil '+TEENS_20[u];
+    return 'dos mil '+TENS[t]+(u?' y '+UNITS[u]:'');
+  }
+  const d=new Date();
+  const el=document.getElementById('todayWords');
+  if(el) el.textContent=DAYS[d.getDate()]+' de '+MONTHS[d.getMonth()]+' del año '+yearWords(d.getFullYear());
+})();
+
+/* ============= Footnote anchors smooth ============= */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);
+    const t=document.getElementById(id);
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+</script>
+</body>
+</html>

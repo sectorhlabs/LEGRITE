@@ -271,6 +271,75 @@
             .wf-step { border-right: none; border-bottom: 1px solid var(--line); }
             .wf-step:last-child { border-bottom: none; }
         }
+
+        /* ── Botón modo boletín ── */
+        #btn-boletin {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9000;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 18px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-weight: 500;
+            background: var(--bg2);
+            border: 1px solid var(--line);
+            color: var(--muted);
+            cursor: pointer;
+            transition: all .25s;
+            box-shadow: 0 4px 24px rgba(0,0,0,.5);
+        }
+        #btn-boletin:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        #btn-boletin .icon {
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        /* ── Overlay boletín ── */
+        #boletin-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9500;
+            background: #cfc6a8;
+        }
+        #boletin-overlay.open { display: block; }
+        #boletin-overlay iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        #btn-close-boletin {
+            position: fixed;
+            top: 18px;
+            right: 22px;
+            z-index: 9600;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            background: #1a1612;
+            color: #f1ead0;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,.4);
+            transition: background .2s;
+        }
+        #btn-close-boletin.open { display: inline-flex; }
+        #btn-close-boletin:hover { background: #b8362e; }
     </style>
 </head>
 <body>
@@ -456,6 +525,47 @@
         <span style="font-family:var(--font-mono);font-size:11px;color:var(--muted);">© 2024 Sector H Labs</span>
     </div>
 </footer>
+
+
+<!-- Boletín mode toggle -->
+<button id="btn-boletin" onclick="openBoletin()" aria-label="Modo boletín">
+    <span class="icon">📰</span> modo boletín
+</button>
+
+<button id="btn-close-boletin" onclick="closeBoletin()" aria-label="Cerrar boletín">
+    ✕ &nbsp;volver
+</button>
+
+<div id="boletin-overlay">
+    <iframe id="boletin-frame" src="" title="Boletín Oficial de LEGRITE" loading="lazy"></iframe>
+</div>
+
+<script>
+    const overlay = document.getElementById('boletin-overlay');
+    const frame   = document.getElementById('boletin-frame');
+    const btnOpen = document.getElementById('btn-boletin');
+    const btnClose= document.getElementById('btn-close-boletin');
+    let loaded = false;
+
+    function openBoletin() {
+        if (!loaded) { frame.src = 'indexv2.html'; loaded = true; }
+        overlay.classList.add('open');
+        btnOpen.style.display  = 'none';
+        btnClose.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeBoletin() {
+        overlay.classList.remove('open');
+        btnOpen.style.display  = '';
+        btnClose.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closeBoletin();
+    });
+</script>
 
 </body>
 </html>
